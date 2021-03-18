@@ -3,3 +3,16 @@ Configuration files for Windows, used as a /bare/ repository in ~$env:USERPROFIL
 
 See https://stegosaurusdormant.com/bare-git-repo/ and https://stegosaurusdormant.com/bare-git-repo/ for more info.
 
+** Initialize
+   #+begin_src powershell
+     cd $env:USERPROFILE     
+     git init --bare .dotgit
+
+     function dotgit {
+         git.exe --git-dir=${env:USERPROFILE}/.cfg --work-tree=${env:USERPROFILE} $args
+     }
+
+     dotgit add .\somefile
+     dotgit commit -m "A demo file"
+     dotgit status
+   #+end_src
