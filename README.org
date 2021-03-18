@@ -1,0 +1,5 @@
+* Windows configfiles
+Configuration files for Windows, used as a /bare/ repository in ~$env:USERPROFILE~.
+
+See https://stegosaurusdormant.com/bare-git-repo/ and https://stegosaurusdormant.com/bare-git-repo/ for more info.
+
