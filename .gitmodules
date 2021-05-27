@@ -6,3 +6,7 @@
 	path = .emacs.default
 	url = git@github.com:sdaaish/emacs.d.git
 	branch = develop
+[submodule ".emacs.doom"]
+	path = .emacs.doom
+	url = https://github.com/hlissner/doom-emacs
+	branch = master
