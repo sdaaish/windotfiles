@@ -66,56 +66,54 @@
                 {
                     "background": "#91ddff",
                     "foreground": "#000000",
-                    "properties": {
-                        "postfix": " <transparent,#91ddff></>",
-                        "prefix": "<#91ddff,transparent></>  "
-                    },
-                    "style": "plain",
+                    "powerline_symbol": "",
+                    "invert_powerline": true,
+                    "style": "powerline",
                     "type": "shell"
+            },
+            {
+                "background": "#1BD760",
+                "foreground": "#111111",
+                "invert_powerline": true,
+                "powerline_symbol": "",
+                "properties": {
+                    "paused_icon": " ",
+                    "playing_icon": " ",
+                    "prefix": "  "
                 },
-                {
-                    "background": "#1BD760",
-                    "foreground": "#111111",
-                    "invert_powerline": true,
-                    "powerline_symbol": "",
-                    "properties": {
-                        "paused_icon": " ",
-                        "playing_icon": " ",
-                        "prefix": "  "
-                    },
-                    "style": "powerline",
-                    "type": "ytm"
+                "style": "powerline",
+                "type": "ytm"
+            },
+            {
+                "background": "#f36943",
+                "foreground": "#ffffff",
+                "invert_powerline": true,
+                "powerline_symbol": "",
+                "properties": {
+                    "battery_icon": "🔋",
+                    "charged_color": "#4caf50",
+                    "charged_icon": " ",
+                    "charging_color": "#40c4ff",
+                    "charging_icon": " ",
+                    "color_background": true,
+                    "discharging_color": "#ff5722",
+                    "discharging_icon": " ",
+                    "postfix": " "
                 },
-                {
-                    "background": "#f36943",
-                    "foreground": "#ffffff",
-                    "invert_powerline": true,
-                    "powerline_symbol": "",
-                    "properties": {
-                        "battery_icon": "🔋",
-                        "charged_color": "#4caf50",
-                        "charged_icon": " ",
-                        "charging_color": "#40c4ff",
-                        "charging_icon": " ",
-                        "color_background": true,
-                        "discharging_color": "#ff5722",
-                        "discharging_icon": " ",
-                        "postfix": " "
-                    },
-                    "style": "powerline",
-                    "type": "battery"
+                "style": "powerline",
+                "type": "battery"
+            },
+            {
+                "background": "#95ffa4",
+                "foreground": "#111111",
+                "properties": {
+                    "postfix": " "
                 },
-                {
-                    "background": "#95ffa4",
-                    "foreground": "#111111",
-                    "properties": {
-                        "postfix": ""
-                    },
-                    "invert_powerline": true,
-                    "leading_diamond": "",
-                    "style": "diamond",
-                    "type": "time"
-                }
+                "invert_powerline": true,
+                "leading_diamond": "",
+                "style": "diamond",
+                "type": "time"
+            }
             ],
             "type": "prompt"
         },
