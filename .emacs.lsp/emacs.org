@@ -1,0 +1,116 @@
+* Emacs config
+** Straight
+#+begin_src emacs-lisp
+  (straight-use-package 'use-package)
+  (setq straight-use-package-by-default t)
+  (setq straight-host-usernames
+        '((github . "sdaaish")
+          (gitlab . "sdaaish")
+          (bitbucket . "bitbucketUser")))
+#+end_src
+** Packages
+#+begin_src emacs-lisp
+  (use-package no-littering)
+  (use-package org
+    :straight org-contrib)
+  (use-package helpful
+    :bind
+    ("C-h k" . #'helpful-key)
+    ("C-c C-d" . #'helpful-at-point)
+    ("C-h F" . #'helpful-function)
+    ("C-h C" . #'helpful-command))
+
+  (use-package diminish)
+  (use-package try)
+  (use-package ivy
+    :diminish
+    :config
+    (ivy-mode))
+  (use-package swiper)
+  (use-package counsel
+    :diminish
+    :config
+    (setq counsel-describe-function-function #'helpful-callable)
+    (setq counsel-describe-variable-function #'helpful-variable)
+    (counsel-mode)
+    :bind (("C-h f" . counsel-describe-function)
+	   ("C-h v" . counsel-describe-variable)))
+
+  (use-package aggressive-indent
+    :config (global-aggressive-indent-mode t))
+  (use-package rainbow-delimiters
+    :diminish
+    :hook
+    ((org-mode prog-mode) . rainbow-delimiters-mode))
+  (use-package rainbow-mode)
+  (use-package smartparens
+    :diminish)
+  (use-package undo-tree
+    :diminish
+    :config (global-undo-tree-mode 1))
+  (use-package smex)
+  (use-package magit
+    :bind ("C-x g" . magit-status)
+    :config
+    (setq magit-completing-read-function 'ivy-completing-read)
+    (if (eq system-type 'windows-nt)
+	(setq-default with-editor-emacsclient-executable "emacsclientw.exe")
+      (setq-default with-editor-emacsclient-executable "emacsclient")))
+  (use-package company
+    :hook (after-init-hook . (global-company-mode t)))
+  (use-package material-theme
+    :config (load-theme 'material t t))
+  (use-package ace-window
+    :config
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    (setq aw-background nil)
+    (setq aw-dispatch-always t)
+    :bind ("M-o" . ace-window))
+  (use-package resize-window
+    :bind ("C-;" . resize-window))
+  (use-package projectile)
+  (use-package counsel-projectile)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package diff-hl
+  :hook ((prog-mode vc-dir-mode) . diff-hl-mode))
+#+end_src
+** Settings
+#+begin_src emacs-lisp
+  ;;(toggle-menu-bar-mode-from-frame)
+  ;;(toggle-horizontal-scroll-bar)
+  (menu-bar-mode 0)
+  (tool-bar-mode 0)
+  ;;(menu-bar--display-line-numbers-mode-relative)
+  (show-paren-mode t)
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+#+begin_src emacs-lisp
+(load-theme 'material)
+(set-frame-font "Cascadia Code-11" nil t)
+#+end_src
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+#+end_src
+#+begin_src emacs-lisp
+(bind-key "'" 'Info-up 'Info-mode-map)
+#+end_src
+#+begin_src emacs-lisp
+  (use-package which-key
+    :config (which-key-mode t)
+    (setq which-key-idle-delay 0))
+#+end_src
+#+begin_src emacs-lisp
+  (use-package powershell
+  :straight (powershell :fork t))
+#+end_src
+#+begin_src emacs-lisp
+	(use-package dired-git-info
+	  :bind (:map dired-mode-map
+		      ("M-g" . dired-git-info-mode)))
+
+      (bind-key "'" 'dired-up-directory dired-mode-map)
+#+end_src
