@@ -1,5 +1,5 @@
 @{
-    Name  = '#MyColorTheme'
+    Name  = 'MyColorTheme'
     Types = @{
         Directories = @{
             symlink  = '#7373ff'
