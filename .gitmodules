@@ -3,10 +3,10 @@
 	url = https://github.com/plexus/chemacs2.git
 	branch = master
 [submodule ".emacs.default"]
-	path = .emacs.default
+	path = .config/emacs.default
 	url = git@github.com:sdaaish/emacs.d.git
 	branch = develop
 [submodule ".emacs.doom"]
-	path = .emacs.doom
+	path = .config/emacs.doom
 	url = https://github.com/hlissner/doom-emacs
 	branch = master
