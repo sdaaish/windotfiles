@@ -6,7 +6,9 @@
 	path = .config/emacs.default
 	url = git@github.com:sdaaish/emacs.d.git
 	branch = develop
+	ignore = dirty
 [submodule ".emacs.doom"]
 	path = .config/emacs.doom
 	url = https://github.com/hlissner/doom-emacs
 	branch = master
+	ignore = dirty
