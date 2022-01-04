@@ -1,7 +1,7 @@
 * Windows configfiles
 Configuration files for Windows, used as a /bare/ repository in ~$env:USERPROFILE~.
 
-See https://stegosaurusdormant.com/bare-git-repo/ and https://stegosaurusdormant.com/bare-git-repo/ for more info.
+See https://stegosaurusdormant.com/bare-git-repo/ and https://www.atlassian.com/git/tutorials/dotfiles/ for more info.
 
 ** Initialize
    #+begin_src powershell
