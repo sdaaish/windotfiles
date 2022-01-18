@@ -9,8 +9,11 @@
                 "foreground": "#ff0e23",
                 "powerline_symbol": "",
                 "style": "powerline",
-                "type": "root"
-                },
+                "type": "root",
+                "properties": {
+                    "root_icon": ""
+                }
+            },
                 {
                     "background": "#00bfff",
                     "foreground": "#100e23",
@@ -31,11 +34,11 @@
                     "type": "path"
                 },
                 {
-                    "background": "#95ffa4",
-                    "foreground": "#193549",
-                    "powerline_symbol": "",
+                    "type": "poshgit",
                     "style": "powerline",
-                    "type": "git"
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#ffffff",
+                    "background": "#0077c2"
                 },
                 {
                     "background": "#906cff",
