@@ -5,14 +5,14 @@
             "alignment": "left",
             "segments": [
                 {
-                    "background": "#ffe9aa",
-                    "foreground": "#100e23",
-                    "powerline_symbol": "",
-                    "style": "powerline",
-                    "type": "root"
+                "background": "#3cb371",
+                "foreground": "#ff0e23",
+                "powerline_symbol": "",
+                "style": "powerline",
+                "type": "root"
                 },
                 {
-                    "background": "#ffffff",
+                    "background": "#00bfff",
                     "foreground": "#100e23",
                     "powerline_symbol": "",
                     "style": "powerline",
