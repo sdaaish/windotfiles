@@ -1,6 +1,6 @@
 # Local version of Powershell profile
 
-Import-Module $PSScriptRoot\MyFunctions.psm1
+Import-Module $PSScriptRoot\MyFunctions\MyFunctions\MyFunctions.psd1
 
 # Use a local path for modules
 $env:PSModulePath = Set-LocalModulePath
@@ -24,3 +24,6 @@ Enable-PoshTransientPrompt
 $ColorTheme = Join-Path ${env:UserProfile} ".config\ColorThemes\MyColorTheme.psd1"
 Add-TerminalIconsColorTheme -Path $ColorTheme -Force
 Set-TerminalIconsTheme -ColorTheme MyColorTheme
+
+. $PSScriptRoot\aliases.ps1
+
