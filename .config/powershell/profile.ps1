@@ -29,5 +29,6 @@ $ColorTheme = Join-Path ${env:UserProfile} ".config\ColorThemes\MyColorTheme.psd
 Add-TerminalIconsColorTheme -Path $ColorTheme -Force
 Set-TerminalIconsTheme -ColorTheme MyColorTheme
 
-. $PSScriptRoot\aliases.ps1
-
+if (Test-Path $PSScriptRoot\aliases.ps1){
+    . $PSScriptRoot\aliases.ps1
+}
