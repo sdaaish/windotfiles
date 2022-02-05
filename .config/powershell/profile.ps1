@@ -19,7 +19,7 @@ $PSDefaultParameterValues["Out-Default:OutVariable"] = "__"
 
 # Oh-my-PoSH https://ohmyposh.dev/docs
 $Theme = Join-Path ${env:USERPROFILE} ".config\oh-my-posh\my-posh-theme.omp.json"
-$env:POSH_GIT_ENABLE = $true
+$env:POSH_GIT_ENABLED = $true
 Import-Module Posh-Git
 oh-my-posh.exe --init --shell pwsh --config $Theme | Invoke-Expression
 Enable-PoshTransientPrompt
