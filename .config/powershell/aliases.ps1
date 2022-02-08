@@ -1,7 +1,7 @@
 # My various aliases
 
 # Set own aliases
-Set-Alias -Name src -Value reload-powershell-profile
+Set-Alias -Name src -Value Reload-PowershellProfile
 Set-Alias -Name alias -Value Search-Alias
 
 Set-Alias -Name em -Value emacs-client
@@ -106,6 +106,32 @@ function gh([string]$help) {
 Function emdi {
     emacs.exe --debug-init
 }
+
+function emacs-client() {
+    $date =  Get-Date -Format 'yyyyMMdd-HH.mm.ss'
+    $logfile = Join-Path $(Resolve-path ~/tmp) "emacs-client-${date}.log"
+    # Workaround for using chemacs2 with server in Windows10
+    $serverfile = $(Resolve-Path ~/.config/emacs.default/server/server -ErrorAction ignore).Path
+
+    $cmd = Get-Command emacsclientw.exe
+    $options = @(
+        "--quiet"
+        "--alternate-editor=runemacs.exe"
+        "--server-file=${serverfile}"
+        "--create-frame"
+    )
+
+    # Starts emacsclient and daemon if not started
+    if ($args.count -eq 0 ) {
+        # Create a new frame if no files as argument
+        & $cmd @options *> $logfile
+    }
+    else {
+        # Dont create a new frame if files exists as argument
+        & $cmd @options  $args *> $logfile
+    }
+}
+
 # Alias for git status
 Function Get-MyGitStatus {
     git status -sb
@@ -133,4 +159,8 @@ Function Get-CommandSyntax {
         $command
     )
     Get-Command $command -Syntax
+}
+
+Function Reload-PowershellProfile {
+    . $(Join-Path ~ .config/powershell/profile.ps1)
 }
