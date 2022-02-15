@@ -1,0 +1,114 @@
+continuation_prompt = '[](green) '
+
+[battery]
+# full_symbol = '´ò© '
+# charging_symbol = '´ûâ '
+# discharging_symbol = '´ûé '
+# unknown_symbol = '´ò╝ '
+# empty_symbol = '´ûì '
+disabled = false
+format = '[$symbol$percentage]($style) '
+
+[[battery.display]]
+threshold = 15
+style = 'red bold'
+
+[hostname]
+ssh_only = false
+trim_at = '.'
+format = '[@$hostname]($style)'
+style = 'green bold'
+disabled = false
+
+[username]
+format = '[$user]($style)'
+style_root = 'red bold'
+style_user = 'blue bold'
+show_always = true
+disabled = false
+
+[time]
+format = '[$time]($style) '
+style = '#005fff'
+use_12hr = false
+disabled = false
+utc_time_offset = 'local'
+time_format = '%T'
+time_range = '-'
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+truncation_length = 3
+truncation_symbol = ".../"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
