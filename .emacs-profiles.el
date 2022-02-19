@@ -3,5 +3,5 @@
             (env . (("DOOMDIR" . "~/.config/doom")))))
  ("lsp" . ((user-emacs-directory . "~/.config/emacs.lsp/")))
  ("slask" . ((user-emacs-directory . "~/.config/emacs.slask")))
- ("rational" . ((user-emacs-directory . "~/.config/rational-emacs"))))
-
+ ("rational" . ((user-emacs-directory . "~/.config/emacs.rational")
+                (env . (("RATIONAL_EMACS_HOME" . "~/.config/rational"))))))
