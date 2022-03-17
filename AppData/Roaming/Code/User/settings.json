@@ -26,5 +26,8 @@
     "powershell.integratedConsole.focusConsoleOnExecute": false,
     "powershell.integratedConsole.showOnStartup": false,
     "powershell.integratedConsole.suppressStartupBanner": true,
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "powershell.promptToUpdatePowerShell": false,
+    "powershell.promptToUpdatePackageManagement": false,
+    "runInPowerShell.PowershellCoreLocation": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
 }
