@@ -29,5 +29,6 @@
     "editor.bracketPairColorization.enabled": true,
     "powershell.promptToUpdatePowerShell": false,
     "powershell.promptToUpdatePackageManagement": false,
-    "runInPowerShell.PowershellCoreLocation": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+    "runInPowerShell.PowershellCoreLocation": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "workbench.startupEditor": "none"
 }
