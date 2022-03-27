@@ -1,11 +1,15 @@
+format = """
+[┌─$time$env_var:$username$hostname $directory$git_status$git_branch$git_commit$git_state](fg:bold blue)
+[└](bold blue) $status"""
+
 continuation_prompt = '[](green) '
 
 [battery]
-# full_symbol = '´ò© '
-# charging_symbol = '´ûâ '
-# discharging_symbol = '´ûé '
-# unknown_symbol = '´ò╝ '
-# empty_symbol = '´ûì '
+full_symbol = '´ò© '
+charging_symbol = '´ûâ '
+discharging_symbol = '´ûé '
+unknown_symbol = '´ò╝ '
+empty_symbol = '´ûì '
 disabled = false
 format = '[$symbol$percentage]($style) '
 
@@ -26,6 +30,19 @@ style_root = 'red bold'
 style_user = 'blue bold'
 show_always = true
 disabled = false
+
+[status]
+disabled = false
+format = "[$symbol]($style) "
+symbol = '(red)'
+success_symbol = '(green)'
+
+[env_var.SUPERUSER]
+symbol = "🧨"
+format = "$symbol "
+
+[env_var.STARSHIP_SHEll]
+format = "[$env_value](yellow)"
 
 [time]
 format = '[$time]($style) '

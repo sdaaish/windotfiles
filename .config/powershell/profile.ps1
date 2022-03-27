@@ -2,6 +2,10 @@
 Import-Module $PSScriptRoot\MyFunctions\MyFunctions\MyFunctions.psd1
 Get-RunningTime $starttime
 
+if (Test-Admin){
+    $env:SUPERUSER = $true
+}
+
 # Use a local path for modules
 $env:PSModulePath = Set-LocalModulePath
 
@@ -26,6 +30,13 @@ Get-RunningTime $starttime
 
 #oh-my-posh.exe --init --shell pwsh --config jandedobbeleer | Invoke-Expression
 #Enable-PoshTransientPrompt
+
+function Invoke-Starship-PreCommand {
+    $host.ui.RawUi.WindowTitle = "PS> $($psversiontable.PSEdition)@$env:USERNAME"
+}
+
+$env:ROOT = $true
+
 $ENV:STARSHIP_CONFIG = Join-Path ${env:UserProfile} ".config\starship\starship.toml"
 Invoke-Expression (&starship init powershell)
 Get-RunningTime $starttime
