@@ -89,6 +89,10 @@ symbol = " "
 [git_branch]
 symbol = " "
 
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+up_to_date = "[](bold green)"
+
 [golang]
 symbol = " "
 
