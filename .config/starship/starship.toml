@@ -22,6 +22,10 @@ format = "$symbol"
 success_symbol = "[└](bold blue)"
 error_symbol = "[└](bold red)"
 
+[cmd_duration]
+format = " [$duration]($style)"
+style = '#3399ff'
+
 [hostname]
 ssh_only = false
 trim_at = '.'
