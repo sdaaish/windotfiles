@@ -4,7 +4,7 @@
 	branch = master
 [submodule ".emacs.default"]
 	path = .config/emacs.default
-	url = git@github.com:sdaaish/emacs.d.git
+	url = https://github.com/sdaaish/emacs.d.git
 	branch = develop
 	ignore = dirty
 [submodule ".emacs.doom"]
