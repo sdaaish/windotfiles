@@ -14,6 +14,7 @@ $PSReadLineOptions = @{
     EditMode = "Emacs"
     BellStyle = "None"
     PredictionSource = "History"
+    PredictionViewStyle = "ListView"
 }
 Set-PSReadlineOption @PSReadLineOptions
 Get-RunningTime $starttime
