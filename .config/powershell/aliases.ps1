@@ -37,6 +37,8 @@ Set-Alias -Name mps -Value multipass
 
 Set-Alias -Name top -Value Get-TopProcess
 
+Set-Alias -Name ra -Value Resolve-Address
+
 # Some functions
 function .. {
     cd ..
