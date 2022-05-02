@@ -15,6 +15,7 @@ $PSReadLineOptions = @{
     BellStyle = "None"
     PredictionSource = "History"
     PredictionViewStyle = "ListView"
+    HistorySearchCursorMovesToEnd = $true
 }
 Set-PSReadlineOption @PSReadLineOptions
 Get-RunningTime $starttime
