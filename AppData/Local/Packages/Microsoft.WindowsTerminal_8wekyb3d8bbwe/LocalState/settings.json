@@ -15,8 +15,8 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-                "useAcrylic": false,
-	    "fontFace": "CaskaydiaCove Nerd Font",
+            "useAcrylic": false,
+            "fontFace": "CaskaydiaCove Nerd Font",
             "fontSize": 11
         },
 
@@ -53,7 +53,7 @@
             "hidden": false,
             "name": "Ubuntu-20.04",
             "commandline": "Ubuntu2004.exe", // Add this to start in homedirectory.
-            "startingDirectory": ""
+                "startingDirectory": ""
         },
             {
             // Ubuntu 20.04, latest
@@ -61,7 +61,7 @@
             "hidden": false,
             "name": "Ubuntu",
             "commandline": "Ubuntu.exe", // Add this to start in homedirectory.
-            "startingDirectory": ""
+                "startingDirectory": ""
         },
             {
             // Ubuntu 18.04
@@ -69,7 +69,7 @@
             "hidden": false,
             "name": "Ubuntu-18.04",
             "commandline": "Ubuntu1804.exe", // Add this to start in homedirectory.
-            "startingDirectory": ""
+                "startingDirectory": ""
         },
             {
             // Ubuntu 16
@@ -89,15 +89,15 @@
         },
             {
             // Ubuntu Multipass
-			      "background" : "#350425",
-			      "commandline" : "multipass shell",
-			      "cursorShape" : "bar",
-			      "fontFace" : "Ubuntu",
-			      "guid" : "{aaaa9e6d-1e09-4be6-b76c-82b4ba1885fb}",
-			      "historySize" : 50000,
-			      "icon" : "c:/program files/multipass/bin/multipass_wt.ico",
-			      "name" : "Multipass"
-		    },
+            "background" : "#350425",
+            "commandline" : "multipass shell",
+            "cursorShape" : "bar",
+            "fontFace" : "Ubuntu",
+            "guid" : "{aaaa9e6d-1e09-4be6-b76c-82b4ba1885fb}",
+            "historySize" : 50000,
+            "icon" : "c:/program files/multipass/bin/multipass_wt.ico",
+            "name" : "Multipass"
+        },
             {
             // Azure cloud shell
             "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
