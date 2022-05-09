@@ -1,188 +1,188 @@
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
 
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "alwaysShowTabs" : true,
-    "showTabsInTitlebar" : true,
-    "useTabSwitcher": false ,
-    "copyOnSelect" : true,
-    "copyFormatting": false,
-    "disabledProfileSources": ["Windows.Terminal.Wsl", "Windows.Terminal.PowershellCore"],
-    "launchMode" : "maximized",
+  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+  "alwaysShowTabs" : true,
+  "showTabsInTitlebar" : true,
+  "useTabSwitcher": false ,
+  "copyOnSelect" : true,
+  "copyFormatting": false,
+  "disabledProfileSources": ["Windows.Terminal.Wsl", "Windows.Terminal.PowershellCore"],
+  "launchMode" : "maximized",
 
-    "profiles":
+  "profiles":
+  {
+    "defaults":
     {
-        "defaults":
-        {
-            // Put settings here that you want to apply to all profiles.
-            "useAcrylic": false,
-            "fontFace": "CaskaydiaCove Nerd Font",
-            "fontSize": 11
-        },
-
-        "list":
-        [
-            {
-            // Powershell Core
-            "closeOnExit": false,
-            "colorScheme": "Campbell",
-            "commandline": "pwsh.exe",
-            "cursorColor": "#00FFFF",
-            "cursorShape": "bar",
-            "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-            "historySize": 9001,
-            "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
-            "name": "PowerShell Core",
-            "padding": "0, 0, 0, 0",
-            "snapOnInput": true,
-            "startingDirectory": "%USERPROFILE%"
-        },
-            {
-            // Make changes here to the powershell.exe profile
-            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-            "name": "Windows PowerShell",
-            "commandline": "powershell.exe",
-            "colorScheme": "Campbell",
-            "startingDirectory": "%USERPROFILE%",
-            "historySize": 9001,
-            "hidden": false
-        },
-            {
-            // Ubuntu 20.04 fixed
-            "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-            "hidden": false,
-            "name": "Ubuntu-20.04",
-            "commandline": "Ubuntu2004.exe", // Add this to start in homedirectory.
-                "startingDirectory": ""
-        },
-            {
-            // Ubuntu 20.04, latest
-            "guid": "{c65c08b5-56e8-4fb1-8238-803c0194069b}",
-            "hidden": false,
-            "name": "Ubuntu",
-            "commandline": "Ubuntu.exe", // Add this to start in homedirectory.
-                "startingDirectory": ""
-        },
-            {
-            // Ubuntu 18.04
-            "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
-            "hidden": false,
-            "name": "Ubuntu-18.04",
-            "commandline": "Ubuntu1804.exe", // Add this to start in homedirectory.
-                "startingDirectory": ""
-        },
-            {
-            // Ubuntu 16
-            "guid": "{6f9994f0-4403-5e85-9cce-98e5da3839bb}",
-            "hidden": false,
-            "name": "Ubuntu 16",
-            "commandline": "ubuntu1604.exe", // Add this to start in homedirectory.
-                "startingDirectory": ""
-        },
-            {
-            // Debian
-            "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-            "hidden": false,
-            "name": "Debian",
-            "commandline": "debian.exe", // Add this to start in homedirectory.
-                "startingDirectory" : ""
-        },
-            {
-            // Ubuntu Multipass
-            "background" : "#350425",
-            "commandline" : "multipass shell",
-            "cursorShape" : "bar",
-            "fontFace" : "Ubuntu",
-            "guid" : "{aaaa9e6d-1e09-4be6-b76c-82b4ba1885fb}",
-            "historySize" : 50000,
-            "icon" : "c:/program files/multipass/bin/multipass_wt.ico",
-            "name" : "Multipass"
-        },
-            {
-            // Azure cloud shell
-            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-            "hidden": false,
-            "name": "Azure Cloud Shell",
-            "source": "Windows.Terminal.Azure"
-        },
-            {
-            // Powershell Core without profile
-            "closeOnExit" : false,
-            "colorScheme" : "My Dark",
-            "commandline" : "pwsh.exe -NoProfile",
-            "cursorColor" : "#00FFFF",
-            "cursorShape" : "bar",
-            "guid" : "{4a4a40d4-b66b-479e-9f69-f7218a87f5fd}",
-            "historySize" : 9001,
-            "icon" : "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
-            "name" : "Core NoProfile",
-            "padding" : "0, 0, 0, 0",
-            "snapOnInput" : true,
-            "startingDirectory" : "%USERPROFILE%"
-        },
-            {
-            // Make changes here to the cmd.exe profile
-            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-            "name": "cmd",
-            "commandline": "cmd.exe",
-            "hidden": false
-        },
-            {
-            // Nushell
-            "guid": "{150ce91f-a9f1-4300-93b2-ff0faeb89029}",
-            "name": "NuShell",
-            "commandline": "c:/Program Files/nu/bin/nu.exe",
-            "hidden": false,
-            "startingDirectory": "%USERPROFILE%",
-            "icon" : "%APPDATA%/nushell/nu/config/icon.png"
-        }
-        ]
+      // Put settings here that you want to apply to all profiles
+      "useAcrylic": false,
+      "fontFace": "CaskaydiaCove Nerd Font",
+      "fontSize": 11
     },
 
-    // Add custom color schemes to this array.
-        // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-    "schemes": [
-        {
-        "name": "My Dark",
-        "foreground": "#839496",
-        "background": "#002B36",
-        "black": "#073642",
-        "red": "#DC322F",
-        "green": "#859900",
-        "yellow": "#B58900",
-        "blue": "#268BD2",
-        "purple": "#D33682",
-        "cyan": "#2AA198",
-        "white": "#EEE8D5",
-        "brightBlack": "#102B36",
-        "brightRed": "#CB4B16",
-        "brightGreen": "#586E75",
-        "brightYellow": "#657B83",
-        "brightBlue": "#839496",
-        "brightPurple": "#6C71C4",
-        "brightCyan": "#93A1A1",
-        "brightWhite": "#FDF6E3"
-    }
-    ],
-
-    // Add custom keybindings to this array.
-        // To unbind a key combination from your defaults.json, set the command to "unbound".
-        // To learn more about keybindings, visit https://aka.ms/terminal-keybindings
-    // Keybindings are called actions from 1.4
-    //https://docs.microsoft.com/en-us/windows/terminal/customize-settings/actions
-    "actions":
+    "list":
     [
-        { "command" : "closeTab", "keys" : "ctrl+w" },
-        { "command" : "newTab", "keys" : "ctrl+t" },
-        { "command" : "prevTab", "keys" : "ctrl+pgup" },
-        { "command" : "nextTab", "keys" : "ctrl+pgdn" },
-        // Commands for panes
-        { "command": "splitHorizontal", "keys": "alt+shift+-" },
-        { "command": "splitVertical", "keys": "alt+-" },
-        { "command": "closePane","keys":  "ctrl+w"  },
-        // Font resize
-        { "command": "decreaseFontSize", "keys":  "ctrl+?" },
-        { "command": "increaseFontSize", "keys":  "ctrl++" },
-        { "command": "commandPalette", "keys": "alt+x" }
+      {
+      // Powershell Core
+      "closeOnExit": false,
+      "colorScheme": "Campbell",
+      "commandline": "pwsh.exe",
+      "cursorColor": "#00FFFF",
+      "cursorShape": "bar",
+      "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+      "historySize": 9001,
+      "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+      "name": "PowerShell Core",
+      "padding": "0, 0, 0, 0",
+      "snapOnInput": true,
+      "startingDirectory": "%USERPROFILE%"
+    },
+      {
+      // Make changes here to the powershell.exe profile
+      "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+      "name": "Windows PowerShell",
+      "commandline": "powershell.exe",
+      "colorScheme": "Campbell",
+      "startingDirectory": "%USERPROFILE%",
+      "historySize": 9001,
+      "hidden": false
+    },
+      {
+      // Ubuntu 20.04 fixed
+      "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+      "hidden": false,
+      "name": "Ubuntu-20.04",
+      "commandline": "Ubuntu2004.exe", // Add this to start in homedirectory
+      "startingDirectory": ""
+    },
+      {
+      // Ubuntu 20.04, latest
+      "guid": "{c65c08b5-56e8-4fb1-8238-803c0194069b}",
+      "hidden": false,
+      "name": "Ubuntu",
+      "commandline": "Ubuntu.exe", // Add this to start in homedirectory
+      "startingDirectory": ""
+    },
+      {
+      // Ubuntu 18.04
+      "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+      "hidden": false,
+      "name": "Ubuntu-18.04",
+      "commandline": "Ubuntu1804.exe", // Add this to start in homedirectory
+      "startingDirectory": ""
+    },
+      {
+      // Ubuntu 16
+      "guid": "{6f9994f0-4403-5e85-9cce-98e5da3839bb}",
+      "hidden": false,
+      "name": "Ubuntu 16",
+      "commandline": "ubuntu1604.exe", // Add this to start in homedirectory
+      "startingDirectory": ""
+    },
+      {
+      // Debian
+      "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+      "hidden": false,
+      "name": "Debian",
+      "commandline": "debian.exe", // Add this to start in homedirectory
+      "startingDirectory" : ""
+    },
+      {
+      // Ubuntu Multipass
+      "background" : "#350425",
+      "commandline" : "multipass shell",
+      "cursorShape" : "bar",
+      "fontFace" : "Ubuntu",
+      "guid" : "{aaaa9e6d-1e09-4be6-b76c-82b4ba1885fb}",
+      "historySize" : 50000,
+      "icon" : "c:/program files/multipass/bin/multipass_wt.ico",
+      "name" : "Multipass"
+    },
+      {
+      // Azure cloud shell
+      "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+      "hidden": false,
+      "name": "Azure Cloud Shell",
+      "source": "Windows.Terminal.Azure"
+    },
+      {
+      // Powershell Core without profile
+      "closeOnExit" : false,
+      "colorScheme" : "My Dark",
+      "commandline" : "pwsh.exe -NoProfile",
+      "cursorColor" : "#00FFFF",
+      "cursorShape" : "bar",
+      "guid" : "{4a4a40d4-b66b-479e-9f69-f7218a87f5fd}",
+      "historySize" : 9001,
+      "icon" : "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+      "name" : "Core NoProfile",
+      "padding" : "0, 0, 0, 0",
+      "snapOnInput" : true,
+      "startingDirectory" : "%USERPROFILE%"
+    },
+      {
+      // Make changes here to the cmd.exe profile
+      "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+      "name": "cmd",
+      "commandline": "cmd.exe",
+      "hidden": false
+    },
+      {
+      // Nushell
+      "guid": "{150ce91f-a9f1-4300-93b2-ff0faeb89029}",
+      "name": "NuShell",
+      "commandline": "c:/Program Files/nu/bin/nu.exe",
+      "hidden": false,
+      "startingDirectory": "%USERPROFILE%",
+      "icon" : "%APPDATA%/nushell/nu/config/icon.png"
+    }
     ]
+  },
+
+  // Add custom color schemes to this array
+  // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+  "schemes": [
+    {
+    "name": "My Dark",
+    "foreground": "#839496",
+    "background": "#002B36",
+    "black": "#073642",
+    "red": "#DC322F",
+    "green": "#859900",
+    "yellow": "#B58900",
+    "blue": "#268BD2",
+    "purple": "#D33682",
+    "cyan": "#2AA198",
+    "white": "#EEE8D5",
+    "brightBlack": "#102B36",
+    "brightRed": "#CB4B16",
+    "brightGreen": "#586E75",
+    "brightYellow": "#657B83",
+    "brightBlue": "#839496",
+    "brightPurple": "#6C71C4",
+    "brightCyan": "#93A1A1",
+    "brightWhite": "#FDF6E3"
+  }
+  ],
+
+  // Add custom keybindings to this array
+  // To unbind a key combination from your defaults.json, set the command to "unbound"
+  // To learn more about keybindings, visit https://aka.ms/terminal-keybindings
+  // Keybindings are called actions from 1.4
+  //https://docs.microsoft.com/en-us/windows/terminal/customize-settings/actions
+  "actions":
+  [
+    { "command" : "closeTab", "keys" : "ctrl+w" },
+    { "command" : "newTab", "keys" : "ctrl+t" },
+    { "command" : "prevTab", "keys" : "ctrl+pgup" },
+    { "command" : "nextTab", "keys" : "ctrl+pgdn" },
+    // Commands for panes
+    { "command": "splitHorizontal", "keys": "alt+shift+-" },
+    { "command": "splitVertical", "keys": "alt+-" },
+    { "command": "closePane","keys":  "ctrl+w"  },
+    // Font resize
+    { "command": "decreaseFontSize", "keys":  "ctrl+?" },
+    { "command": "increaseFontSize", "keys":  "ctrl++" },
+    { "command": "commandPalette", "keys": "alt+x" }
+  ]
 }
