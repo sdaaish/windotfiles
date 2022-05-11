@@ -44,6 +44,20 @@ Invoke-Expression (&starship init powershell)
 Get-RunningTime $starttime
 
 # Colorthemes for files
+# Local fix for a bug in 5.1, see https://github.com/devblackops/Terminal-Icons/issues/5#issuecomment-1057072605
+try { Get-Command 'Import-PowerShellDataFile' -ErrorAction Stop | Out-Null}
+catch {
+    function Import-PowerShellDataFile {
+	[CmdletBinding()]
+	Param (
+            [Parameter(Mandatory = $true)]
+            [Microsoft.PowerShell.DesiredStateConfiguration.ArgumentToConfigurationDataTransformation()]
+            [hashtable] $Path
+	)
+	return $Path
+    }
+}
+
 $ColorTheme = Join-Path ${env:UserProfile} ".config\ColorThemes\MyColorTheme.psd1"
 Add-TerminalIconsColorTheme -Path $ColorTheme -Force
 Set-TerminalIconsTheme -ColorTheme MyColorTheme
