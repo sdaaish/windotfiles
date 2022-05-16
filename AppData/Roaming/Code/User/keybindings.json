@@ -86,6 +86,10 @@
     "key": "ctrl+tab",
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inQuickOpen"
+  },
+  { "key": "ctrl+x ctrl+e",
+    "command": "PowerShell.RunSelection",
+    "when": "editorTextFocus && editorLangId == 'powershell'"
   }
 ] 
 
