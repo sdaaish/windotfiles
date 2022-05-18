@@ -1,0 +1,5 @@
+# Use a link for global .gitconfig to repository to make life simpler.
+# The rest is included from there.
+
+[include]
+	path = ~/.config/git/config
