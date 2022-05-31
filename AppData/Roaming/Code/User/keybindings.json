@@ -1,92 +1,133 @@
 // Place your key bindings in this file to overwrite the defaults
 [
   {
-    "key": "ctrl+c shift+b",
-    "command": "workbench.action.terminal.new"
-  },
+  "key": "ctrl+c shift+b",
+  "command": "workbench.action.terminal.new"
+},
   {
-    "key": "ctrl+x b",
-    "command": "-workbench.action.showAllEditors"
-  },
+  "key": "ctrl+x b",
+  "command": "-workbench.action.showAllEditors"
+},
   {
-    "key": "ctrl+x ctrl+b",
-    "command": "workbench.action.switchWindow"
-  },
+  "key": "ctrl+x ctrl+b",
+  "command": "workbench.action.switchWindow"
+},
   {
-    "key": "ctrl+x b",
-    "command": "workbench.action.quickOpenTerm"
-  },
+  "key": "ctrl+x 0",
+  "command": "workbench.action.closeEditorsInOtherGroups"
+},
   {
-    "key": "ctrl+x 0",
-    "command": "workbench.action.closeEditorsInOtherGroups"
-  },
+  "key": "ctrl+x 1",
+  "command": "-workbench.action.closeEditorsInOtherGroups"
+},
   {
-    "key": "ctrl+x 1",
-    "command": "-workbench.action.closeEditorsInOtherGroups"
-  },
+  "key": "alt+u",
+  "command": "editor.action.transformToUppercase",
+  "when": "editorTextFocus && !editorReadonly"
+},
   {
-    "key": "alt+u",
-    "command": "editor.action.transformToUppercase",
-    "when": "editorTextFocus && !editorReadonly"
-  },
+  "key": "ctrl+x ctrl+u",
+  "command": "-editor.action.transformToUppercase",
+  "when": "editorTextFocus && !editorReadonly"
+},
   {
-    "key": "ctrl+x ctrl+u",
-    "command": "-editor.action.transformToUppercase",
-    "when": "editorTextFocus && !editorReadonly"
-  },
+  "key": "alt+l",
+  "command": "-toggleFindInSelection",
+  "when": "editorFocus"
+},
   {
-    "key": "alt+l",
-    "command": "-toggleFindInSelection",
-    "when": "editorFocus"
-  },
+  "key": "alt+l",
+  "command": "editor.action.transformToLowercase",
+  "when": "editorTextFocus && !editorReadonly"
+},
   {
-    "key": "alt+l",
-    "command": "editor.action.transformToLowercase",
-    "when": "editorTextFocus && !editorReadonly"
-  },
+  "key": "ctrl+x ctrl+l",
+  "command": "-editor.action.transformToLowercase",
+  "when": "editorTextFocus && !editorReadonly"
+},
   {
-    "key": "ctrl+x ctrl+l",
-    "command": "-editor.action.transformToLowercase",
-    "when": "editorTextFocus && !editorReadonly"
-  },
+  "key": "ctrl+x d",
+  "command": "extension.dired.open"
+},
   {
-    "key": "ctrl+x ctrl+d",
-    "command": "extension.dired.open"
-  },
+  "key": "vk_oem_7",
+  "command": "extension.dired.goUpDir",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "oem_7",
-    "command": "extension.dired.goUpDir",
-    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-  },
+  "key": "ctrl+x f",
+  "command": "-extension.dired.open",
+  "when": "editorTextFocus && !inDebugRepl"
+},
   {
-    "key": "ctrl+k ctrl+o",
-    "command": "-workbench.action.files.openFolder"
-  },
+  "key": "c",
+  "command": "extension.dired.copy",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "ctrl+x ctrl+x",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
+  "key": "shift+c",
+  "command": "-extension.dired.copy",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "ctrl+oem_3",
-    "command": "-workbench.action.terminal.toggleTerminal"
-  },
+  "key": "oem_plus",
+  "command": "extension.dired.createDir",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "alt+right",
-    "command": "workbench.action.terminal.focusNext"
-  },
+  "key": "shift+oem_plus",
+  "command": "-extension.dired.createDir",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "alt+left",
-    "command": "workbench.action.terminal.focusPrevious"
-  },
+  "key": "shift+b",
+  "command": "-extension.dired.goUpDir",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "ctrl+tab",
-    "command": "workbench.action.openPreviousEditorFromHistory"
-  },
+  "key": "r",
+  "command": "extension.dired.rename",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
   {
-    "key": "ctrl+tab",
-    "command": "workbench.action.quickOpenNavigateNext",
-    "when": "inQuickOpen"
-  },
+  "key": "shift+r",
+  "command": "-extension.dired.rename",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
+  {
+  "key": "g",
+  "command": "extension.dired.refresh",
+  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+},
+  {
+  "key": "ctrl+k ctrl+o",
+  "command": "-workbench.action.files.openFolder"
+},
+  {
+  "key": "ctrl+x ctrl+x",
+  "command": "workbench.action.terminal.toggleTerminal"
+},
+  {
+  "key": "ctrl+oem_3",
+  "command": "-workbench.action.terminal.toggleTerminal"
+},
+  {
+  "key": "alt+right",
+  "command": "workbench.action.terminal.focusNext"
+},
+  {
+  "key": "alt+left",
+  "command": "workbench.action.terminal.focusPrevious"
+},
+  {
+  "key": "ctrl+tab",
+  "command": "workbench.action.openPreviousEditorFromHistory"
+},
+  {
+  "key": "ctrl+tab",
+  "command": "workbench.action.quickOpenNavigateNext",
+  "when": "inQuickOpen"
+},
   { "key": "ctrl+x ctrl+e",
     "command": "PowerShell.RunSelection",
     "when": "editorTextFocus && editorLangId == 'powershell'"
