@@ -46,60 +46,6 @@
   "when": "editorTextFocus && !editorReadonly"
 },
   {
-  "key": "ctrl+x d",
-  "command": "extension.dired.open"
-},
-  {
-  "key": "vk_oem_7",
-  "command": "extension.dired.goUpDir",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "ctrl+x f",
-  "command": "-extension.dired.open",
-  "when": "editorTextFocus && !inDebugRepl"
-},
-  {
-  "key": "c",
-  "command": "extension.dired.copy",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "shift+c",
-  "command": "-extension.dired.copy",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "oem_plus",
-  "command": "extension.dired.createDir",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "shift+oem_plus",
-  "command": "-extension.dired.createDir",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "shift+b",
-  "command": "-extension.dired.goUpDir",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "r",
-  "command": "extension.dired.rename",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "shift+r",
-  "command": "-extension.dired.rename",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
-  "key": "g",
-  "command": "extension.dired.refresh",
-  "when": "dired.open && !findWidgetVisible && !inQuickOpen"
-},
-  {
   "key": "ctrl+k ctrl+o",
   "command": "-workbench.action.files.openFolder"
 },
@@ -131,6 +77,110 @@
   { "key": "ctrl+x ctrl+e",
     "command": "PowerShell.RunSelection",
     "when": "editorTextFocus && editorLangId == 'powershell'"
+  },
+  {
+    "key": "ctrl+x d",
+    "command": "extension.dired.open",
+    "when": "editorTextFocus && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+x f",
+    "command": "-extension.dired.open",
+    "when": "editorTextFocus && !inDebugRepl"
+  },
+  {
+    "key": "shift+b",
+    "command": "-extension.dired.goUpDir",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "shift+b",
+    "command": "-extension.dired.goUpDir"
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "oem_2",
+    "command": "extension.dired.goUpDir",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-extension.dired.enter",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "enter",
+    "command": "extension.dired.enter",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "shift+oem_plus",
+    "command": "-extension.dired.createDir",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "shift+oem_plus",
+    "command": "extension.dired.createDir",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "shift+r",
+    "command": "-extension.dired.rename",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "shift+r",
+    "command": "extension.dired.rename",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "shift+c",
+    "command": "-extension.dired.copy",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "shift+c",
+    "command": "extension.dired.copy",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "m",
+    "command": "-extension.dired.select",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "m",
+    "command": "extension.dired.select",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "u",
+    "command": "-extension.dired.unselect",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "u",
+    "command": "extension.dired.unselect",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "g",
+    "command": "-extension.dired.refresh",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "g",
+    "command": "extension.dired.refresh",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
+  },
+  {
+    "key": "q",
+    "command": "-extension.dired.close",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen"
+  },
+  {
+    "key": "q",
+    "command": "extension.dired.close",
+    "when": "dired.open && !findWidgetVisible && !inQuickOpen && !sideBarFocus"
   }
-] 
-
+]
