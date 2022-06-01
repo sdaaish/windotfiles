@@ -13,6 +13,7 @@
   "editor.renderWhitespace": "none",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "emacs-mcx.killWholeLine": true,
   "emacs-mcx.strictEmacsMove": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
@@ -47,5 +48,9 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "dired.fixed_window": "false",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "customWindowZoom.zoomLevelChangeValue": 0.2,
 }
