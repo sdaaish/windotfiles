@@ -53,4 +53,9 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "customWindowZoom.zoomLevelChangeValue": 0.2,
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
 }
