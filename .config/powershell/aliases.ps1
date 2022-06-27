@@ -16,6 +16,7 @@ Set-Alias -Name lll -Value Find-Links
 Set-alias -Name gts -Value Get-MyGitStatus
 Set-Alias -Name gtl -Value Get-MyGitLog
 Set-Alias -Name dotgit -Value Invoke-DotGit
+Set-Alias -Name dgit -Value Invoke-DotGit
 
 # Docker
 Set-Alias -Name dk -Value 'docker'

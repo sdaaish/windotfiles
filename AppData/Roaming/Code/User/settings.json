@@ -58,4 +58,8 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true
   },
+  "update.enableWindowsBackgroundUpdates": false,
+  "update.showReleaseNotes": false,
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
 }
