@@ -10,11 +10,17 @@ if (Test-Admin){
 $env:PSModulePath = Set-LocalModulePath
 
 # Settings for PSReadLine
+if ($env:TERM_PROGRAM){
+    $view = "InlineView" # Check for VSCode
+}
+else {
+    $view = "ListView"
+}
 $PSReadLineOptions = @{
     EditMode = "Emacs"
     BellStyle = "None"
     PredictionSource = "History"
-    PredictionViewStyle = "ListView"
+    PredictionViewStyle = $view
     HistorySearchCursorMovesToEnd = $true
 }
 Set-PSReadlineOption @PSReadLineOptions
