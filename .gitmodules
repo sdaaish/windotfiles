@@ -5,7 +5,7 @@
 [submodule ".emacs.default"]
 	path = .config/emacs.default
 	url = https://github.com/sdaaish/emacs.d.git
-	branch = develop
+	branch = master
 	ignore = dirty
 [submodule ".emacs.doom"]
 	path = .config/emacs.doom
