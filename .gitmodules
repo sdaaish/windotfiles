@@ -1,7 +1,7 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/plexus/chemacs2.git
-	branch = master
+	branch = main
 [submodule ".emacs.default"]
 	path = .config/emacs.default
 	url = https://github.com/sdaaish/emacs.d.git
