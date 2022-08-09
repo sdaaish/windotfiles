@@ -167,3 +167,12 @@ Function Get-CommandSyntax {
 Function Reload-PowershellProfile {
     . $(Join-Path ~ .config/powershell/profile.ps1)
 }
+
+# Make update of path easier
+Function refreshenv {
+		$paths = @(
+				([System.Environment]::GetEnvironmentVariable("Path","Machine") -split ";")
+				([System.Environment]::GetEnvironmentVariable("Path","User") -split ";")
+		)
+		$env:path = ($paths|Select-Object -Unique) -join ";"
+}
