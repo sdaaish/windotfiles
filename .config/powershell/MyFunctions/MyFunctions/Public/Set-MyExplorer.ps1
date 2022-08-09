@@ -21,6 +21,7 @@ function Set-MyExplorer {
     Set-ItemProperty $key ListviewShadow 1
     Set-ItemProperty $key MMTaskbarEnabled 0
     Set-ItemProperty $key MapNetDrvBtn 0
+    Set-ItemProperty $key MultiTaskingAltTabFilter 3
     Set-ItemProperty $key NavPaneExpandToCurrentFolder 1
     Set-ItemProperty $key NavPaneShowAllFolders 1
     Set-ItemProperty $key ReindexedProfile 1
