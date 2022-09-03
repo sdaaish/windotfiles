@@ -40,6 +40,8 @@ Set-Alias -Name top -Value Get-TopProcess
 
 Set-Alias -Name ra -Value Resolve-Address
 
+Set-Alias -Name ytp -Value yt-dlp
+
 # Some functions
 function .. {
     cd ..
