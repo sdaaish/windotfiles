@@ -6,9 +6,9 @@
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:t title:t toc:t todo:t |:t
 #+title: emacs
-#+date: <2021-11-14 sön>
+#+date: <2021-11-14>
+#+email: 
 #+author:
-#+email: SDAA@VBYSDAA1
 #+language: en
 #+select_tags: export
 #+exclude_tags: noexport
@@ -20,12 +20,14 @@
 Untangle init files automatically when save with org-babel.
 From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a5c3dad5f050fdc0ee1/init.el][Emacs From Scratch: Everything in Babel]].
 #+begin_src emacs-lisp
-(defun my/org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name) my/emacs-orgfile)
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle))))
+  (defvar my/init-dir (file-name-directory (or load-file-name (buffer-file-name))))
+  (defvar my/emacs-orgfile (expand-file-name "emacs.org" my/init-dir))
+  (defun my/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name) my/emacs-orgfile)
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle))))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'my/org-babel-tangle-config)))
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'my/org-babel-tangle-config)))
 #+end_src
 ** Early-init
 #+begin_src emacs-lisp :tangle ./early-init.el
@@ -86,6 +88,7 @@ From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a
           ("q" . "quote\n")
           ("s" . "src")
           ("v" . "verse\n")))
+  :custom (org-src-preserve-indentation t)
   :straight org-contrib)
 #+end_src
 *** Org-superstar
@@ -105,6 +108,10 @@ From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a
 *** Diminish
 #+begin_src emacs-lisp
 (use-package diminish)
+#+end_src
+*** Try
+Test Emacs packages.
+#+begin_src emacs-lisp
 (use-package try)
 #+end_src
 *** Ivy, counsel, swiper
@@ -161,30 +168,40 @@ From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a
 (use-package undo-tree
   :diminish
   :config (global-undo-tree-mode 1))
-
-(use-package smex)
-
-(use-package magit
-  :bind ("C-x g" . magit-status)
-  :config
-  (setq magit-completing-read-function 'ivy-completing-read)
-  (if (eq system-type 'windows-nt)
-      (setq-default with-editor-emacsclient-executable "emacsclientw.exe")
-    (setq-default with-editor-emacsclient-executable "emacsclient")))
-(use-package company
-  :config 
-  (setq company-idle-delay
-        (lambda () (if (company-in-string-or-comment) nil 0.3)))
-  :bind ("C-." . #'company-indent-or-complete-common)
-  :hook (after-init-hook . (global-company-mode t)))
-(use-package ace-window
-  :config
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (setq aw-background nil)
-  (setq aw-dispatch-always t)
-  :bind ("M-o" . ace-window))
-(use-package resize-window
-  :bind ("C-;" . resize-window))
+*** AMX
+Show a list of recently used commands.
+#+begin_src emacs-lisp
+(use-package amx)
+#+end_src
+*** Magit
+The one and only.
+#+begin_src emacs-lisp
+  (use-package magit
+    :bind ("C-x g" . magit-status)
+    :config
+    (setq magit-completing-read-function 'ivy-completing-read)
+    (if (eq system-type 'windows-nt)
+        (setq-default with-editor-emacsclient-executable "emacsclientw.exe")
+      (setq-default with-editor-emacsclient-executable "emacsclient")))
+#+end_src
+*** Company
+#+begin_src emacs-lisp
+  (use-package company
+    :config 
+    (setq company-idle-delay
+          (lambda () (if (company-in-string-or-comment) nil 0.3)))
+    :bind ("C-." . #'company-indent-or-complete-common)
+    :hook (after-init-hook . (global-company-mode t)))
+#+end_src
+#+begin_src emacs-lisp
+  (use-package ace-window
+    :config
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    (setq aw-background nil)
+    (setq aw-dispatch-always t)
+    :bind ("M-o" . ace-window))
+  (use-package resize-window
+    :bind ("C-;" . resize-window))
 #+end_src
 *** Projectile
 #+begin_src emacs-lisp
@@ -235,6 +252,11 @@ From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a
 #+begin_src emacs-lisp
   (use-package powershell
   :straight (powershell :fork t))
+#+end_src
+*** Babel for powershell
+#+begin_src emacs-lisp
+(use-package ob-powershell
+  :config (require 'ob-powershell))
 #+end_src
 *** Dired git
 #+begin_src emacs-lisp
