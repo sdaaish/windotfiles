@@ -1,0 +1,208 @@
+* Options                                                  :ARCHIVE:noexport:
+#+setupfile: ~/.config/orgmode/readthedocs.config
+#+property: header-args :exports none
+#+options: author:nil date:nil timestamp:nil num:nil
+#+call: backup()
+#+startup: show2levels indent
+
+* Update VSCode default config
+** Summary
+This is a try for literal programming in Emacs with *Org mode* and *Powershell*. The motivation is to get to update *Visual Studio Code* initial settings without having to store the =settings.json= in git, since it can contain sensitive values. And since *VSCode* likes to update it in various ways it easily breaks. This way I can add my prefered settings directly to my VSCode profile without having to sync it entirely. Can be useful for new setups where I just want the most useful settings to my liking.
+
+Or just to keep track of the different options since there is so much one can do so it's easy to be overwhelmed. And I do sync my config but with many computers and setups, this can be a challenge.
+
+To do this from Emacs =powershell.el= and =ob-powershell= needs to be installed. [[https://melpa.org/][Melpa]].
+
+A lot of this is also work in progress. Org is useful but requires some reading and tinkering. It could have been done with *VSCode* and *Jupyter* notebooks too, (Notebooks for Powershell), but that is a heavier setup.
+** Todos
+- Nested JSON don't work at the moment. Like for Powershell and JSON code settings.
+  #+begin_example
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+    "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  #+end_example
+- Backslash is double escaped when running from Emacs. Just use 1 backslash in the code sections.
+- How to pass variables to and from powershell is still a mystery.
+- Create a script that runs emacs in batch mode and generates this.
+* Scripts
+** Backup
+Backup the original settings file before doing anything.
+#+name: backup
+#+begin_src powershell :results output none
+$date = Get-Date -Format "yyyymmdd-HHmmss"
+Copy-Item -Path settings.json -Destination settings.$date.json
+Copy-Item -Path keybindings.json -Destination keybindings.$date.json
+#+end_src
+** Update
+Creates the update script. Tangle this with =C-v C-v C-t=, =org-babel-tangle=.
+
+#+name: update
+#+begin_src powershell :tangle update.ps1 :comments org :results silent
+# Run this script after export of source code blocks.
+# This will update the settings file for VS Code
+$settings = Get-Content settings.json|ConvertFrom-Json
+
+Get-ChildItem -Filter my*.json |Foreach-Object {
+    $MyDefaults = Get-content $_.Name|ConvertFrom-Json
+
+    foreach ($property in $MyDefaults.psobject.properties){
+        $key =  $property.name
+        $value =  $property.value
+        $settings.$key = $value
+    }
+
+    $settings|ConvertTo-Json | Out-File settings.json
+    Remove-item $_.Name -Force | Out-Null
+}
+#+end_src
+** Powershell
+My preferred Powershell settings.
+#+begin_src powershell :results output file :file mypowershell.json
+$MyDefaults = @{
+    "powershell.buttons.showRunButtons" = $false
+    "powershell.codeFormatting.autoCorrectAliases" = $true
+    "powershell.codeFormatting.trimWhitespaceAroundPipe" = $true
+    "powershell.codeFormatting.useCorrectCasing" = $true
+    "powershell.codeFormatting.whitespaceBetweenParameters" = $true
+    "powershell.integratedConsole.focusConsoleOnExecute" = $false
+    "powershell.integratedConsole.showOnStartup" = $false
+    "powershell.integratedConsole.suppressStartupBanner" = $true
+    "powershell.promptToUpdatePackageManagement" = $false
+    "powershell.promptToUpdatePowerShell" = $false
+    "runInPowerShell.PowershellCoreLocation" = "C:\Program Files\PowerShell\7\pwsh.exe"
+}
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:mypowershell.json]]
+** Terminal
+Settings for the built-in terminal.
+#+begin_src powershell :results output file :file myterminal.json
+$MyDefaults = @{
+    "terminal.integrated.fontSize" = 12
+    "terminal.integrated.copyOnSelection" = $true
+    "terminal.integrated.cursorStyle" = "line"
+    "terminal.external.windowsExec" = "C:\Program Files\Powershell\7\pwsh.exe"
+    "terminal.integrated.shell.windows" = "C:\Program Files\PowerShell\7\pwsh.exe"
+}
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:myterminal.json]]
+
+** Emacs
+And I use Emacs-MCX in VSCode to get about the same keybindings as the original.
+#+begin_src powershell :results output file :file myemacs.json
+$MyDefaults = @{
+    "emacs-mcx.killWholeLine" = $true
+    "emacs-mcx.strictEmacsMove" = $true
+    "dired.fixed_window" = "false"
+}
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:myemacs.json]]
+
+** Editor
+Various defaults that are useful.
+#+begin_src powershell :results output file :file myeditor.json
+$MyDefaults = @{
+    "breadcrumbs.enabled" = $true
+    "editor.bracketPairColorization.enabled" = $true
+    "editor.cursorBlinking" = "solid"
+    "editor.fontFamily" = "'CaskaydiaCove Nerd Font',Consolas, 'Courier New', monospace"
+    "editor.fontLigatures" = $true
+    "editor.fontSize" = 14
+    "editor.formatOnPaste" = $true
+    "editor.formatOnType" = $true
+    "editor.lineNumbers" = "relative"
+    "editor.minimap.enabled" = $false
+    "editor.mouseWheelZoom" = $true
+    "editor.renderWhitespace" = "none"
+    "editor.tabCompletion" = "on"
+    "editor.tabSize" = 2
+    "editor.defaultFormatter" = "esbenp.prettier-vscode"
+    "editor.formatOnSave" = $true
+    "files.defaultLanguage" = "powershell"
+    "files.eol" = "\n"
+    "files.insertFinalNewline" = $true
+    "files.autoSave" = "afterDelay"
+    "files.trimFinalNewlines" = $true
+    "files.trimTrailingWhitespace" = $true
+    "files.autoSaveDelay" = 5000
+    "workbench.activityBar.visible" = $false
+    "workbench.colorTheme" = "Abyss"
+    "workbench.editor.showTabs" = $false
+    "workbench.startupEditor" = "newUntitledFile"
+    "window.zoomLevel" = 1
+    "customWindowZoom.zoomLevelChangeValue" = 0.2
+}
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:myeditor.json]]
+
+** Updates
+Reduce notifications from VSCode.
+#+begin_src powershell :results output file :file myupdates.json
+$MyDefaults = @{
+    "extensions.closeExtensionDetailsOnViewChange" = $true
+    "extensions.ignoreRecommendations" = $true
+    "extensions.showRecommendationsOnlyOnDemand" = $true
+    "security.workspace.trust.untrustedFiles" = "open"
+    "vsicons.dontShowNewVersionMessage" = $true
+    "update.enableWindowsBackgroundUpdates" = $false
+    "update.showReleaseNotes" = $false
+    "extensions.autoCheckUpdates" = $false
+    "extensions.autoUpdate" = $false
+}
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:myupdates.json]]
+
+** Code
+Not working yet. Various sections with settings for code formatting.
+#+begin_src powershell :results output file :file myjson.json
+$MyDefaults = @{
+    "[powershell]" = {
+        "editor.defaultFormatter" = "ms-vscode.powershell"
+        "editor.tabSize" = 4
+        "editor.insertSpaces" = $true
+    }
+    "[jsonc]" = {
+        "editor.defaultFormatter" = "vscode.json-language-features"
+    }
+}
+
+$MyDefaults|ConvertTo-Json
+#+end_src
+
+#+RESULTS:
+[[file:myjson.json]]
+
+* Keyboard settings
+To be continued.....
+* References
+I got my inspiration from *Howard Abrams* that has his entire setup in =Org-mode=. Not in Windows but I should be able to replicate that I think.
+- https://github.com/howardabrams/dot-files
+- https://youtu.be/dljNabciEGg
+
+And also *Mike Hamrick* that describes consistent technical documentation with Emacs and Org mode.
+- https://gitlab.com/spudlyo/orgdemo
+- https://youtu.be/0g9BcZvQbXU
+
+A nice video that goes through how to setup Powershell in VSCode by *Justin Grote*.
+- https://youtu.be/uoBptbPFOPk
+
+And I use Emacs over VSCode since I like it better. I don't hate VSCode but it's harder to get my workflow and keyboard navigation they way I want with VSCode.
