@@ -1,6 +1,6 @@
 * Options                                                  :ARCHIVE:noexport:
 #+setupfile: ~/.config/orgmode/readthedocs.config
-#+property: header-args :exports none
+#+property: header-args :exports none :noweb yes :results output
 #+options: author:nil date:nil timestamp:nil num:nil
 #+call: backup()
 #+startup: show2levels indent
@@ -13,7 +13,7 @@ Or just to keep track of the different options since there is so much one can do
 
 To do this from Emacs =powershell.el= and =ob-powershell= needs to be installed. [[https://melpa.org/][Melpa]].
 
-A lot of this is also work in progress. Org is useful but requires some reading and tinkering. It could have been done with *VSCode* and *Jupyter* notebooks too, (Notebooks for Powershell), but that is a heavier setup.
+A lot of this is also work in progress. *Org* is useful but requires some reading and tinkering. It could have been done with *VSCode* and *Jupyter* notebooks too, (Notebooks for Powershell), but that is a heavier setup.
 ** Todos
 - Nested JSON don't work at the moment. Like for Powershell and JSON code settings.
   #+begin_example
@@ -27,42 +27,55 @@ A lot of this is also work in progress. Org is useful but requires some reading 
   },
   #+end_example
 - Backslash is double escaped when running from Emacs. Just use 1 backslash in the code sections.
-- How to pass variables to and from powershell is still a mystery.
+- How to pass variables to and from powershell is still a mystery. SOlved how to use functions with =noweb=.
 - Create a script that runs emacs in batch mode and generates this.
+- Delete older backup files.
+
 * Scripts
 ** Backup
 Backup the original settings file before doing anything.
 #+name: backup
-#+begin_src powershell :results output none
-$date = Get-Date -Format "yyyymmdd-HHmmss"
+#+begin_src powershell :results output list replace
+$date = Get-Date -Format "yyyyMMdd-HHmmss"
 Copy-Item -Path settings.json -Destination settings.$date.json
 Copy-Item -Path keybindings.json -Destination keybindings.$date.json
+Get-ChildItem -File|
+  Where-Object Name -Match 'settings\.(\d){8}-(\d){6}\.json'|
+  Where-Object LastWriteTime -gt $((Get-Date).AddDays(3))
 #+end_src
+
 ** Update
-Creates the update script. Tangle this with =C-v C-v C-t=, =org-babel-tangle=.
+The function to update the =settings.json= file. This is included in the other sections and stores the settings.
 
 #+name: update
-#+begin_src powershell :tangle update.ps1 :comments org :results silent
-# Run this script after export of source code blocks.
+#+begin_src powershell
 # This will update the settings file for VS Code
-$settings = Get-Content settings.json|ConvertFrom-Json
+function Set-VSCodeSettings {
 
-Get-ChildItem -Filter my*.json |Foreach-Object {
-    $MyDefaults = Get-content $_.Name|ConvertFrom-Json
+    param(
+        $New
+    )
 
-    foreach ($property in $MyDefaults.psobject.properties){
+    # Read the original
+    $settings = Get-Content settings.json|ConvertFrom-Json
+
+    foreach ($property in $New.GetEnumerator()){
         $key =  $property.name
         $value =  $property.value
         $settings.$key = $value
     }
 
     $settings|ConvertTo-Json | Out-File settings.json
-    Remove-item $_.Name -Force | Out-Null
+
 }
 #+end_src
+
+#+RESULTS: update
+
 ** Powershell
 My preferred Powershell settings.
 #+begin_src powershell :results output file :file mypowershell.json
+<<update>>
 $MyDefaults = @{
     "powershell.buttons.showRunButtons" = $false
     "powershell.codeFormatting.autoCorrectAliases" = $true
@@ -76,14 +89,14 @@ $MyDefaults = @{
     "powershell.promptToUpdatePowerShell" = $false
     "runInPowerShell.PowershellCoreLocation" = "C:\Program Files\PowerShell\7\pwsh.exe"
 }
-$MyDefaults|ConvertTo-Json
+
+Set-VSCodeSettings $MyDefaults
 #+end_src
 
-#+RESULTS:
-[[file:mypowershell.json]]
 ** Terminal
 Settings for the built-in terminal.
 #+begin_src powershell :results output file :file myterminal.json
+<<update>>
 $MyDefaults = @{
     "terminal.integrated.fontSize" = 12
     "terminal.integrated.copyOnSelection" = $true
@@ -91,29 +104,27 @@ $MyDefaults = @{
     "terminal.external.windowsExec" = "C:\Program Files\Powershell\7\pwsh.exe"
     "terminal.integrated.shell.windows" = "C:\Program Files\PowerShell\7\pwsh.exe"
 }
-$MyDefaults|ConvertTo-Json
-#+end_src
 
-#+RESULTS:
-[[file:myterminal.json]]
+Set-VSCodeSettings $MyDefaults
+#+end_src
 
 ** Emacs
 And I use Emacs-MCX in VSCode to get about the same keybindings as the original.
 #+begin_src powershell :results output file :file myemacs.json
+<<update>>
 $MyDefaults = @{
     "emacs-mcx.killWholeLine" = $true
     "emacs-mcx.strictEmacsMove" = $true
     "dired.fixed_window" = "false"
 }
-$MyDefaults|ConvertTo-Json
-#+end_src
 
-#+RESULTS:
-[[file:myemacs.json]]
+Set-VSCodeSettings $MyDefaults
+#+end_src
 
 ** Editor
 Various defaults that are useful.
 #+begin_src powershell :results output file :file myeditor.json
+<<update>>
 $MyDefaults = @{
     "breadcrumbs.enabled" = $true
     "editor.bracketPairColorization.enabled" = $true
@@ -145,15 +156,14 @@ $MyDefaults = @{
     "window.zoomLevel" = 1
     "customWindowZoom.zoomLevelChangeValue" = 0.2
 }
-$MyDefaults|ConvertTo-Json
-#+end_src
 
-#+RESULTS:
-[[file:myeditor.json]]
+Set-VSCodeSettings $MyDefaults
+#+end_src
 
 ** Updates
 Reduce notifications from VSCode.
 #+begin_src powershell :results output file :file myupdates.json
+<<update>>
 $MyDefaults = @{
     "extensions.closeExtensionDetailsOnViewChange" = $true
     "extensions.ignoreRecommendations" = $true
@@ -165,15 +175,14 @@ $MyDefaults = @{
     "extensions.autoCheckUpdates" = $false
     "extensions.autoUpdate" = $false
 }
-$MyDefaults|ConvertTo-Json
-#+end_src
 
-#+RESULTS:
-[[file:myupdates.json]]
+Set-VSCodeSettings $MyDefaults
+#+end_src
 
 ** Code
 Not working yet. Various sections with settings for code formatting.
 #+begin_src powershell :results output file :file myjson.json
+<<update>>
 $MyDefaults = @{
     "[powershell]" = {
         "editor.defaultFormatter" = "ms-vscode.powershell"
@@ -185,11 +194,8 @@ $MyDefaults = @{
     }
 }
 
-$MyDefaults|ConvertTo-Json
+Set-VSCodeSettings $MyDefaults
 #+end_src
-
-#+RESULTS:
-[[file:myjson.json]]
 
 * Keyboard settings
 To be continued.....
