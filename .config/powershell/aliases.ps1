@@ -40,6 +40,9 @@ Set-Alias -Name top -Value Get-TopProcess
 
 Set-Alias -Name ra -Value Resolve-Address
 
+Set-Alias -Name sus -Value Update-Scoop
+Set-Alias -Name wug -Value Update-WinGet
+
 Set-Alias -Name ytp -Value yt-dlp
 
 # Some functions
@@ -177,4 +180,26 @@ Function refreshenv {
 				([System.Environment]::GetEnvironmentVariable("Path","User") -split ";")
 		)
 		$env:path = ($paths|Select-Object -Unique) -join ";"
+}
+
+Function mysudo {
+    param(
+        [Parameter(Mandatory)]
+        [string]$FilePath,
+
+        [Parameter(ValueFromRemainingArguments)]
+        [string[]]$ArgumentList
+    )
+
+    Start-Process @PSBoundParameters -Verb Runas
+}
+
+function Update-WinGet {
+    param()
+    winget upgrade --source=winget $args
+}
+
+function Update-Scoop {
+    param()
+    scoop update && scoop status
 }
