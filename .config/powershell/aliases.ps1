@@ -203,3 +203,8 @@ function Update-Scoop {
     param()
     scoop update && scoop status
 }
+
+Function Install-WslTools {
+    $uri = "https://github.com/rupor-github/wsl-ssh-agent/releases/latest/download/wsl-ssh-agent.json"
+    scoop install $uri
+}

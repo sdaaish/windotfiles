@@ -1,18 +1,52 @@
+#+property: header-args :noweb yes :results output silent :exports code
+#+startup: show2levels indent
+
 * Windows configfiles
 Configuration files for Windows, used as a /bare/ repository in ~$env:USERPROFILE~.
 
 See https://stegosaurusdormant.com/bare-git-repo/ and https://www.atlassian.com/git/tutorials/dotfiles/ for more info.
 
 ** Initialize
-   #+begin_src powershell
-     cd $env:USERPROFILE     
-     git init --bare .dotgit
 
-     function dotgit {
-         git.exe --git-dir=${env:USERPROFILE}/.cfg --work-tree=${env:USERPROFILE} $args
-     }
+#+begin_src powershell
+cd $env:USERPROFILE
+git init --bare .dotgit
 
-     dotgit add .\somefile
-     dotgit commit -m "A demo file"
-     dotgit status
-   #+end_src
+function dotgit {
+    git.exe --git-dir=${env:USERPROFILE}/.cfg --work-tree=${env:USERPROFILE} $args
+}
+
+dotgit add .\somefile
+dotgit commit -m "A demo file"
+dotgit status
+#+end_src
+
+** Submodules
+Some needed commands to update submodules. For more info see https://git-scm.com/docs/git-submodule.
+*** Define the function
+#+name: dotfunction
+#+begin_src powershell
+function dotgit {
+    git.exe --git-dir=${env:USERPROFILE}/.cfg --work-tree=${env:USERPROFILE} $args
+}
+#+end_src
+
+*** Initialize all submodules
+Initialize and populate them
+#+begin_src powershell
+<<dotfunction>>
+dotgit submodules update --init --recursive
+#+end_src
+*** Update submodules
+Save submodule settinghs to local git repository and to an update from the remote.
+#+begin_src powershell
+<<dotfunction>>
+dotgit submodule sync --recursive
+dotgit submodule update --remote --rebase --recursive
+#+end_src
+*** Checkout correct branch
+Do a checkout for the correct branch. If there is no branch specified in .gitmodules, *master* will be checked out.
+#+begin_src powershell
+<<dotfunction>>
+dotgit submodule foreach  --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master)'
+#+end_src
