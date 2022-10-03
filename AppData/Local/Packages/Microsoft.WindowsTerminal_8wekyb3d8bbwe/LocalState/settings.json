@@ -25,7 +25,7 @@
         },
         {
             "command": "closePane",
-            "keys": "ctrl+w"
+            "keys": "ctrl+shift+w"
         },
         {
             "command": "unbound",
