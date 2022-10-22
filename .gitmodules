@@ -12,3 +12,6 @@
 	url = https://github.com/hlissner/doom-emacs
 	branch = master
 	ignore = dirty
+[submodule ".config/crafted-emacs"]
+	path = .config/crafted-emacs
+	url = https://github.com/SystemCrafters/crafted-emacs.git
