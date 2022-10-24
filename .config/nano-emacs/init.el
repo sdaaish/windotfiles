@@ -34,7 +34,6 @@
 (use-package smex)
 (use-package counsel)
 (use-package mini-frame)
-(use-package material-theme)
 
 ;; Set fonts for Nano Emacs before it is loaded.
 (setq nano-font-family-monospaced "Cascadia Mono")
@@ -63,3 +62,8 @@
 (tool-bar-mode 0)
 (set-scroll-bar-mode nil)
 (menu-bar-mode 0)
+
+(use-package magit
+  :bind ("C-x g" . 'magit-status))
+
+(use-package elgrep)
