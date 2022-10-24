@@ -6,6 +6,13 @@
         {
             "command": 
             {
+                "action": "commandPalette"
+            },
+            "keys": "alt+x"
+        },
+        {
+            "command": 
+            {
                 "action": "closeTab"
             }
         },
@@ -24,8 +31,11 @@
             "keys": "ctrl+pgup"
         },
         {
-            "command": "closePane",
-            "keys": "ctrl+shift+w"
+            "command": 
+            {
+                "action": "nextTab"
+            },
+            "keys": "ctrl+pgdn"
         },
         {
             "command": "unbound",
@@ -40,179 +50,78 @@
             "keys": "ctrl+shift+plus"
         },
         {
-            "command": 
-            {
-                "action": "nextTab"
-            },
-            "keys": "ctrl+pgdn"
-        },
-        {
-            "command": 
-            {
-                "action": "commandPalette"
-            },
-            "keys": "alt+x"
+            "command": "closePane",
+            "keys": "ctrl+shift+w"
         }
     ],
-    "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "disabledProfileSources": 
-    [
-        "Windows.Terminal.Wsl",
-        "Windows.Terminal.PowershellCore"
-    ],
-    "launchMode": "maximized",
     "profiles": 
     {
         "defaults": 
         {
-            "font": 
-            {
-                "face": "CaskaydiaCove Nerd Font",
-                "size": 11
-            },
-            "useAcrylic": false
+          "colorScheme": "Campbell",
+          "cursorColor": "#00FFFF",
+          "cursorShape": "bar",
+          "font":
+          {
+            "face": "CaskaydiaCove Nerd Font",
+            "size": 11
+          },
+          "useAcrylic": false
         },
         "list": 
         [
             {
-                "closeOnExit": "never",
-                "colorScheme": "Campbell",
-                "commandline": "pwsh.exe",
-                "cursorColor": "#00FFFF",
-                "cursorShape": "bar",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
-                "name": "PowerShell Core",
-                "padding": "0, 0, 0, 0",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "colorScheme": "Campbell",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "historySize": 9001,
-                "name": "Windows PowerShell",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "Ubuntu2004.exe",
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "startingDirectory": null
-            },
-            {
-                "commandline": "Ubuntu.exe",
-                "guid": "{c65c08b5-56e8-4fb1-8238-803c0194069b}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "startingDirectory": null
-            },
-            {
-                "commandline": "Ubuntu1804.exe",
-                "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
-                "hidden": false,
-                "name": "Ubuntu-18.04",
-                "startingDirectory": null
-            },
-            {
-                "commandline": "ubuntu1604.exe",
-                "guid": "{6f9994f0-4403-5e85-9cce-98e5da3839bb}",
-                "hidden": false,
-                "name": "Ubuntu 16",
-                "startingDirectory": null
-            },
-            {
-                "commandline": "debian.exe",
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
-                "name": "Debian",
-                "startingDirectory": null
-            },
-            {
-                "background": "#350425",
-                "commandline": "multipass shell",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "face": "Ubuntu"
-                },
-                "guid": "{aaaa9e6d-1e09-4be6-b76c-82b4ba1885fb}",
-                "historySize": 50000,
-                "icon": "c:/program files/multipass/bin/multipass_wt.ico",
-                "name": "Multipass"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "closeOnExit": "never",
-                "colorScheme": "My Dark",
-                "commandline": "pwsh.exe -NoProfile",
-                "cursorColor": "#00FFFF",
-                "cursorShape": "bar",
-                "guid": "{4a4a40d4-b66b-479e-9f69-f7218a87f5fd}",
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
-                "name": "Core NoProfile",
-                "padding": "0, 0, 0, 0",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "cmd"
-            },
-            {
-                "commandline": "c:/Program Files/nu/bin/nu.exe",
-                "guid": "{150ce91f-a9f1-4300-93b2-ff0faeb89029}",
-                "hidden": false,
-                "icon": "%APPDATA%/nushell/nu/config/icon.png",
-                "name": "NuShell",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64",
-                "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-                "icon": "C:/msys64/mingw64.ico",
-                "name": "MINGW64 / MSYS2",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw32",
-                "guid": "{2d51fdc4-a03b-4efe-81bc-722b7f6f3820}",
-                "icon": "C:/msys64/mingw32.ico",
-                "name": "MINGW32 / MSYS2",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys",
-                "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
-                "icon": "C:/msys64/msys2.ico",
-                "name": "MSYS / MSYS2",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "guid": "{78a9c394-48f0-5845-8970-dfeec1f61022}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022 [2]",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{b9c16586-21cf-53c6-8b4c-d681231eb70b}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022 [2]",
-                "source": "Windows.Terminal.VisualStudio"
-            }
+                "name": "PowerShell",
+          "source": "Windows.Terminal.PowershellCore",
+          "closeOnExit": "never"
+        },
+          {
+          "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+          "hidden": false,
+          "name": "Windows PowerShell"
+        },
+          {
+          "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+          "hidden": false,
+          "name": "Ubuntu-20.04",
+          "source": "Windows.Terminal.Wsl"
+        },
+          {
+          "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+          "hidden": false,
+          "name": "Ubuntu",
+          "source": "Windows.Terminal.Wsl"
+        },
+          {
+          "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+          "hidden": false,
+          "name": "Azure Cloud Shell",
+          "source": "Windows.Terminal.Azure"
+        },
+          {
+          "commandline": "%SystemRoot%\\System32\\cmd.exe",
+          "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+          "hidden": false,
+          "name": "Command Prompt"
+        },
+          {
+          "guid": "{2ba60575-dc3e-5e5e-a1d4-65b957a849f7}",
+          "hidden": false,
+          "name": "Developer Command Prompt for VS 2022",
+          "source": "Windows.Terminal.VisualStudio"
+        },
+          {
+          "guid": "{a61178d3-7441-544d-9a40-5e03d199758e}",
+          "hidden": false,
+          "name": "Developer PowerShell for VS 2022",
+          "source": "Windows.Terminal.VisualStudio"
+        }
         ]
     },
     "schemes": 
@@ -262,29 +171,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#CCCCCC",
             "yellow": "#C19C00"
-        },
-        {
-            "background": "#002B36",
-            "black": "#073642",
-            "blue": "#268BD2",
-            "brightBlack": "#102B36",
-            "brightBlue": "#839496",
-            "brightCyan": "#93A1A1",
-            "brightGreen": "#586E75",
-            "brightPurple": "#6C71C4",
-            "brightRed": "#CB4B16",
-            "brightWhite": "#FDF6E3",
-            "brightYellow": "#657B83",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#2AA198",
-            "foreground": "#839496",
-            "green": "#859900",
-            "name": "My Dark",
-            "purple": "#D33682",
-            "red": "#DC322F",
-            "selectionBackground": "#FFFFFF",
-            "white": "#EEE8D5",
-            "yellow": "#B58900"
         },
         {
             "background": "#282C34",
