@@ -74,7 +74,7 @@ function Set-VSCodeSettings {
 
 ** Powershell
 My preferred Powershell settings.
-#+begin_src powershell :results output file :file mypowershell.json
+#+begin_src powershell :results silent
 <<update>>
 $MyDefaults = @{
     "powershell.buttons.showRunButtons" = $false
@@ -153,6 +153,9 @@ $MyDefaults = @{
     "workbench.colorTheme" = "Abyss"
     "workbench.editor.showTabs" = $false
     "workbench.startupEditor" = "newUntitledFile"
+    "workbench.sideBar.location" = "right"
+    "workbench.statusBar.visible" = $true
+    "workbench.tips.enabled" = $true
     "window.zoomLevel" = 1
     "customWindowZoom.zoomLevelChangeValue" = 0.2
 }
@@ -178,6 +181,19 @@ $MyDefaults = @{
 
 Set-VSCodeSettings $MyDefaults
 #+end_src
+
+** Addons
+Reduce notifications from VSCode.
+#+begin_src powershell :results output file :file myupdates.json
+<<update>>
+$MyDefaults = @{
+   "gitlens.showWelcomeOnInstall" = $true
+   "gitlens.showWhatsNewAfterUpgrades" = $true
+}
+
+Set-VSCodeSettings $MyDefaults
+#+end_src
+
 
 ** Code
 Not working yet. Various sections with settings for code formatting.
