@@ -62,6 +62,12 @@ From [[https://github.com/daviwil/emacs-from-scratch/blob/9388cf6ecd9b44c430867a
         (bitbucket . "bitbucketUser")))
 #+end_src
 ** Packages
+*** GCMH
+Garbage collection
+#+begin_src emacs-lisp
+(use-package gcmh
+  :diminish gcmh-mode)
+#+end_src
 *** Melpa
 #+begin_src emacs-lisp
 (require 'package)
@@ -168,6 +174,7 @@ Test Emacs packages.
 (use-package undo-tree
   :diminish
   :config (global-undo-tree-mode 1))
+  #+end_src
 *** AMX
 Show a list of recently used commands.
 #+begin_src emacs-lisp
@@ -186,12 +193,12 @@ The one and only.
 #+end_src
 *** Company
 #+begin_src emacs-lisp
-  (use-package company
-    :config 
-    (setq company-idle-delay
-          (lambda () (if (company-in-string-or-comment) nil 0.3)))
-    :bind ("C-." . #'company-indent-or-complete-common)
-    :hook (after-init-hook . (global-company-mode t)))
+(use-package company
+  :config 
+  (setq company-idle-delay
+        (lambda () (if (company-in-string-or-comment) nil 0.3)))
+  :bind ("C-." . #'company-indent-or-complete-common)
+  :hook (after-init-hook . global-company-mode))
 #+end_src
 #+begin_src emacs-lisp
   (use-package ace-window
@@ -231,7 +238,7 @@ The one and only.
 (use-package doom-themes
   :hook
   (window-setup . (lambda()
-                    (load-theme 'doom-city-lights t nil)
+                    (load-theme 'doom-snazzy t nil)
                     (toggle-frame-maximized))))
 
 (use-package autothemer)
@@ -256,7 +263,8 @@ The one and only.
 *** Babel for powershell
 #+begin_src emacs-lisp
 (use-package ob-powershell
-  :config (require 'ob-powershell))
+  :config (require 'ob-powershell)
+  :custom (ob-powershell-powershell-command "pwsh -NoProfile -NoLogo"))
 #+end_src
 *** Dired git
 #+begin_src emacs-lisp
@@ -274,12 +282,22 @@ Rename scratch and no startup screen.
 #+end_src
 ** LSP
 #+begin_src emacs-lisp
-      (use-package lsp-mode
-        :hook (powershell . lsp-mode))
-  ;; Increase these when going to lsp-mode and reset when going back
-    ;;(setq gc-cons-threshold (* 10 1024 1024))
-    ;;(setq read-process-output-max (* 1024 1024))
-      (use-package dap-mode)
+(setq read-process-output-max (* 1024 1024))
+(use-package lsp-mode
+  :config (lsp-enable-which-key-integration t)
+  :hook
+  ((powershell-mode sh-mode) . lsp-mode)
+  (lsp-mode . lsp-enable-which-key-integration))
+(use-package dap-mode)
 (use-package company-lsp)
 #+end_src
-** 
+*** Ivy for LSP
+#+begin_src emacs-lisp
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+#+end_src
+** Org mode
+#+begin_src emacs-lisp
+(customize-set-variable 'org-confirm-babel-evaluate nil)
+#+end_src
+
