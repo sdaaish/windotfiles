@@ -15,3 +15,5 @@
 [submodule ".config/crafted-emacs"]
 	path = .config/crafted-emacs
 	url = https://github.com/SystemCrafters/crafted-emacs.git
+	branch = master
+	ignore = dirty

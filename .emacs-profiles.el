@@ -6,4 +6,4 @@
  ("work" . ((user-emacs-directory . "~/.config/emacs.work")))
  ("crafted" . ((user-emacs-directory . "~/.config/crafted-emacs")
                (env . (("CRAFTED_EMACS_HOME" . "~/.config/crafted-config")))))
- ("nano" . ((user-emacs-directory . "~/.config/nano-emacs"))))
+ ("nano" . ((user-emacs-directory . "~/.config/nano-emacs/"))))

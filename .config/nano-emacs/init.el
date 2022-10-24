@@ -34,20 +34,17 @@
 (use-package smex)
 (use-package counsel)
 (use-package mini-frame)
+(use-package material-theme)
 
 ;; Set fonts for Nano Emacs before it is loaded.
 (setq nano-font-family-monospaced "Cascadia Mono")
 (setq nano-font-family-proportional "Comic Sans MS")
 (setq nano-font-size 14)
 
-;; No menu, tool or scrollbars
-(tool-bar-mode 0)
-(set-scroll-bar-mode nil)
-(menu-bar-mode 0)
-
 ;; Load required modules.
 (require 'nano-layout)
 (require 'nano-base-colors)
+(require 'nano-colors)
 (require 'nano-faces)
 (require 'nano-theme)
 (require 'nano-theme-dark)
@@ -60,3 +57,9 @@
 (require 'nano-minibuffer)
 (nano-faces)
 (nano-theme)
+(nano-theme-set-dark)
+
+;; No menu, tool or scrollbars
+(tool-bar-mode 0)
+(set-scroll-bar-mode nil)
+(menu-bar-mode 0)
