@@ -38,7 +38,6 @@
   "terminal.external.windowsExec": "C:\\Program Files\\Powershell\\7\\pwsh.exe",
   "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "vsicons.dontShowNewVersionMessage": true,
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Abyss",
   "workbench.editor.showTabs": false,
   "workbench.startupEditor": "newUntitledFile",
@@ -64,5 +63,7 @@
   "extensions.autoUpdate": false,
   "powershell.buttons.showRunButtons": false,
   "files.autoSaveDelay": 5000,
-  "settingsSync.ignoredSettings": []
+  "settingsSync.ignoredSettings": [],
+  "workbench.activityBar.visible": false,
+  "workbench.sideBar.location": "right"
 }
