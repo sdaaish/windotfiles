@@ -19,18 +19,19 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; Install Nano Emacs repository
+;; Install Nano Emacs repository.
 (straight-use-package
  '(nano-emacs :type git :host github :repo "rougier/nano-emacs"))
 
-;; Use use-package to instal packages
+;; Use use-package to instal packages.
 (straight-use-package 'use-package)
 (customize-set-variable 'straight-use-package-by-default t)
 
-;; Use no-littering to minimize pollution
+;; Use no-littering to minimize pollution.
 (use-package no-littering
   :config (require 'no-littering))
 
+;; These are requiered for the nano-packages that will be used.
 (use-package smex)
 (use-package counsel)
 (use-package mini-frame)
@@ -58,12 +59,20 @@
 (nano-theme)
 (nano-theme-set-dark)
 
-;; No menu, tool or scrollbars
+;; No menu, tool or scrollbars.
 (tool-bar-mode 0)
 (set-scroll-bar-mode nil)
 (menu-bar-mode 0)
 
+;; These are optional packages.
+
+;; Magit is a very useful tool.
 (use-package magit
   :bind ("C-x g" . 'magit-status))
 
+;; Utilities, nice to have.
 (use-package elgrep)
+(use-package htmlize)
+(use-package powershell)
+(use-package ob-powershell
+  :config (require 'ob-powershell))
