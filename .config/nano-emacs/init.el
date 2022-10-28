@@ -6,6 +6,10 @@
 ;; Keywords: lisp,convenience
 
 ;; Bootstrap straight package installer
+
+;;; Commentary:
+
+;;; Code:
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -23,7 +27,7 @@
 (straight-use-package
  '(nano-emacs :type git :host github :repo "rougier/nano-emacs"))
 
-;; Use use-package to instal packages.
+;; Use use-package to install packages.
 (straight-use-package 'use-package)
 (customize-set-variable 'straight-use-package-by-default t)
 
@@ -76,3 +80,7 @@
 (use-package powershell)
 (use-package ob-powershell
   :config (require 'ob-powershell))
+(use-package try)
+
+(provide 'init)
+;;; init.el ends here
