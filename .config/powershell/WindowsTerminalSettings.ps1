@@ -14,7 +14,7 @@ Function Save-WTSettingsFile {
     # Remove old backups
     Get-ChildItem -Path $DestinationFolder -File|
       Where-Object Name -Match 'settings\.(\d){8}-(\d){6}\.json'|
-      Where-Object LastWriteTime -gt $((Get-Date).AddDays(3))|
+      Where-Object LastWriteTime -lt $((Get-Date).AddDays(-3))|
       Remove-Item -Force
 }
 
@@ -85,8 +85,10 @@ Set-TerminalSettings -Path $WTSettingsFile -NewSetting $MyDefaults
 $MyDefaults = @{
     profiles = @{
         defaults = @{
+            bellStyle = "none"
             closeOnExit = "never"
             colorScheme = "Campbell"
+            cursorShape = "underscore"
             font = @{
                 face =  "CaskaydiaCove Nerd Font"
                 size =  11
@@ -96,3 +98,6 @@ $MyDefaults = @{
     }
 }
 Set-TerminalSettings -Path $WTSettingsFile -NewSetting $MyDefaults.profiles
+
+# No blinking cursor. Terminal needs restart
+Set-ItemProperty 'HKCU:\Control Panel\Desktop\' -Name CursorBlinkRate -Value -1

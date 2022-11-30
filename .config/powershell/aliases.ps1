@@ -201,7 +201,7 @@ function Update-WinGet {
 
 function Update-Scoop {
     param()
-    scoop update && scoop status
+    scoop update ; scoop status
 }
 
 Function Install-WslTools {
